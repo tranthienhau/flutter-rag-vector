@@ -2,6 +2,16 @@
 
 A Flutter + Riverpod proof-of-concept that demonstrates a production-grade mobile RAG (Retrieval Augmented Generation) chatbot. The app embeds documents on-device, retrieves the top-k matches from a vector store (Pinecone-style API plus a local fallback for offline), and asks Claude to generate grounded answers with citations.
 
+## Demo
+
+![Demo](screenshots/demo.gif)
+
+| Empty chat | Grounded answer | Multi-turn | Composing |
+| --- | --- | --- | --- |
+| ![Empty chat](screenshots/01-empty-chat.png) | ![Grounded answer](screenshots/02-grounded-answer.png) | ![Multi-turn](screenshots/03-multi-turn.png) | ![Composing](screenshots/04-composing-question.png) |
+
+The screenshots show the real app running on an iPhone 17 Pro simulator: the first-run empty state, a grounded answer with citation chips that link back to the retrieved source chunks, a multi-turn conversation with a follow-up question, and composing a new question.
+
 ## What this POC demonstrates
 
 - A clean RAG pipeline split into four single-purpose components: chunker, embedder, vector store, and generator
