@@ -1,3 +1,13 @@
+# Flutter platform scaffolding (generated locally by `flutter create`)
+ios/
+android/
+macos/
+linux/
+windows/
+web/
+.metadata
+flutter_*.log
+
 # Flutter
 .dart_tool/
 .flutter-plugins
