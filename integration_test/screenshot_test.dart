@@ -7,6 +7,7 @@ import 'package:flutter_rag_vector/core/rag/chunker.dart';
 import 'package:flutter_rag_vector/core/rag/vector_store.dart';
 import 'package:flutter_rag_vector/features/chat/chat_controller.dart';
 import 'package:flutter_rag_vector/features/chat/chat_screen.dart';
+import 'package:flutter_rag_vector/features/chat/theme.dart';
 
 /// A chat controller seeded with a real, grounded RAG conversation so the
 /// screenshots render genuine app widgets (bubbles + citation chips) without
@@ -64,7 +65,11 @@ List<ChatMessage> _conversation() => [
 
 Widget _app({List<Override> overrides = const []}) => ProviderScope(
       overrides: overrides,
-      child: const MaterialApp(home: ChatScreen()),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: buildAppTheme(),
+        home: const ChatScreen(),
+      ),
     );
 
 void main() {
@@ -95,6 +100,8 @@ void main() {
         (ref) => SeededChatController(ref, _conversation()),
       ),
     ]));
+    await tester.pump(const Duration(milliseconds: 400));
+    await tester.drag(find.byType(ListView).first, const Offset(0, -360));
     await tester.pump(const Duration(milliseconds: 600));
     await binding.takeScreenshot('03-multi-turn');
   });
