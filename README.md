@@ -1,6 +1,8 @@
-# Flutter RAG Mobile - Vector Search + Claude POC
+# InsightEngine - Flutter RAG Mobile (Vector Search + Claude POC)
 
 A Flutter + Riverpod proof-of-concept that demonstrates a production-grade mobile RAG (Retrieval Augmented Generation) chatbot. The app embeds documents on-device, retrieves the top-k matches from a vector store (Pinecone-style API plus a local fallback for offline), and asks Claude to generate grounded answers with citations.
+
+The UI is an "Airy Minimalist" research-assistant design (indigo "Obsidian Flux" light theme; Geist / Inter / JetBrains Mono type): a brand empty state with starter cards, grounded answer cards with inline citation badges and a Sources panel built from the retrieved chunks, plus answer actions and a quick-action composer.
 
 ## Demo
 
@@ -45,7 +47,8 @@ lib/
 │       └── claude_client.dart      # Anthropic streaming client
 └── features/
     └── chat/
-        ├── chat_screen.dart        # Conversation UI with citation chips
+        ├── chat_screen.dart        # Conversation UI with citation badges + sources
+        ├── theme.dart              # Obsidian Flux design tokens (colors, type, elevation)
         └── chat_controller.dart    # Riverpod controller wiring everything
 ```
 

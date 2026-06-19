@@ -6,9 +6,10 @@
    xcrun simctl boot "iPhone 17 Pro"
    ```
 
-2. Fetch packages:
+2. Fetch packages (the `ios/` runner is git-ignored, so scaffold it first):
 
    ```bash
+   flutter create --platforms=ios .
    flutter pub get
    ```
 
